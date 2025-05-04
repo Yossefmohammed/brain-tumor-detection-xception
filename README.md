@@ -7,6 +7,18 @@ This project implements a deep learning model for brain tumor detection using th
 - Email: ypsefmohammedahmed@gamil.com
 - Phone: 01126078938
 
+## Project Resources
+- [Jupyter Notebook](brain-tumor-detection-xception.ipynb) - Main implementation and analysis
+- [Dataset Source](https://www.kaggle.com/datasets/navoneel/brain-mri-images-for-brain-tumor-detection) - Brain MRI Images for Brain Tumor Detection
+
+## Notebook Preview
+*Note: Screenshots of the notebook will be added here showing:*
+- Data preprocessing steps
+- Model architecture visualization
+- Training progress
+- Sample predictions
+- Performance metrics
+
 ## Dataset
 The project uses the Brain MRI Images for Brain Tumor Detection dataset from Kaggle, which contains:
 - Images of brain MRIs
