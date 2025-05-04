@@ -81,3 +81,11 @@ The project requires the following Python packages:
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contact
+
+For any questions or suggestions, please feel free to:
+- Open an issue in this repository
+- Contact the repository owner through GitHub
+- Email: ypssefmohammedahmed@gmail.com
+- Phone: 01126078938
