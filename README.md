@@ -1,79 +1,83 @@
 # Brain Tumor Detection using Xception Model
 
-## Overview
-This project implements a deep learning model for brain tumor detection using the Xception architecture. The model is trained to classify brain MRI images into two categories: tumor present ('yes') or no tumor present ('no').
+This project implements a deep learning model for brain tumor detection using MRI images. The model is based on the Xception architecture, which is a powerful convolutional neural network known for its efficiency and accuracy in image classification tasks.
 
-## Contact Information
-- Email: ypsefmohammedahmed@gamil.com
-- Phone: 01126078938
+## Project Overview
 
-## Project Resources
-- [Jupyter Notebook](brain-tumor-detection-xception.ipynb) - Main implementation and analysis
-- [Dataset Source](https://www.kaggle.com/datasets/navoneel/brain-mri-images-for-brain-tumor-detection) - Brain MRI Images for Brain Tumor Detection
+The goal of this project is to classify brain MRI images into two categories:
+- Tumor present
+- No tumor present
 
-## Notebook Preview
-*Note: Screenshots of the notebook will be added here showing:*
-- Data preprocessing steps
-- Model architecture visualization
-- Training progress
-- Sample predictions
-- Performance metrics
+The model uses transfer learning with the Xception architecture, which is pre-trained on ImageNet, and fine-tunes it for the specific task of brain tumor detection.
 
 ## Dataset
-The project uses the Brain MRI Images for Brain Tumor Detection dataset from Kaggle, which contains:
-- Images of brain MRIs
-- Two classes: 'yes' (tumor present) and 'no' (no tumor present)
-- Total of 253 images split into training, validation, and test sets
 
-## Model Architecture
-The project uses the Xception model, a deep convolutional neural network architecture that:
-- Utilizes depthwise separable convolutions
-- Has 71 layers
-- Achieves high performance with relatively fewer parameters
-- Is pre-trained on ImageNet and fine-tuned for brain tumor detection
+The project uses a dataset of brain MRI images from Kaggle. The dataset is split into:
+- Training set: 160 images
+- Validation set: 29 images
+- Test set: 64 images
+
+### Data Visualization
+
+![Data Visualization](Datavisulization.png)
 
 ## Implementation Details
-1. **Data Preprocessing**:
-   - Image resizing to 256x256 pixels
-   - Data augmentation using ImageDataGenerator
-   - Image enhancement using custom preprocessing function
-   - Train/validation/test split (70%/15%/15%)
 
-2. **Model Training**:
-   - Uses transfer learning with Xception base model
-   - Custom top layers added for binary classification
-   - Adam optimizer with learning rate 0.001
-   - Batch size of 64
-   - Early stopping to prevent overfitting
+### Data Preprocessing
+- Images are resized to 299x299 pixels (Xception's input size)
+- Data augmentation techniques are applied:
+  - Random rotation
+  - Width and height shifts
+  - Horizontal flip
+  - Zoom
+  - Brightness adjustment
+- Images are normalized to [0,1] range
 
-3. **Image Enhancement**:
-   - Custom preprocessing function to enhance image quality
-   - Includes contrast adjustment
-   - Sharpening using kernel convolution
-   - Value channel enhancement
+### Model Architecture
+The model uses the Xception architecture with the following modifications:
+- Base model: Xception (pre-trained on ImageNet)
+- Global Average Pooling layer
+- Dense layer with 1024 units and ReLU activation
+- Dropout layer (0.5)
+- Final dense layer with 1 unit and sigmoid activation
+
+### Training
+- Optimizer: Adam with learning rate 0.0001
+- Loss function: Binary Crossentropy
+- Metrics: Accuracy
+- Early stopping with patience of 5 epochs
+- Model checkpointing to save the best model
 
 ## Results
-The model achieves high accuracy in detecting brain tumors from MRI images. Detailed performance metrics and visualizations are available in the notebook.
+
+### Training Progress
+![Training Progress](trainig_epochs.png)
+
+### Training Metrics
+![Training Metrics](Training_plot.png)
+
+### Testing Accuracy
+![Testing Accuracy](Testing_acc.png)
+
+### Confusion Matrix
+![Confusion Matrix](confusion_matrix.png)
 
 ## Requirements
-- Python 3.10.13
+
+The project requires the following Python packages:
 - TensorFlow
 - Keras
-- OpenCV
 - NumPy
 - Pandas
 - Matplotlib
-- scikit-learn
+- Scikit-learn
 
 ## Usage
+
 1. Clone the repository
-2. Install required dependencies
-3. Download the dataset from Kaggle
-4. Run the Jupyter notebook to train and evaluate the model
+2. Install the required packages
+3. Run the Jupyter notebook `brain-tumor-detection-xception.ipynb`
 
 ## License
-This project is open source and available under the MIT License.
 
-## Acknowledgments
-- Dataset: Brain MRI Images for Brain Tumor Detection from Kaggle
-- Xception model architecture by François Chollet
+This project is licensed under the MIT License - see the LICENSE file for details.
